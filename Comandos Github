@@ -1,0 +1,10 @@
+Recordar que estos comandos los deves de ejecutar estando dentro de la carpeta del proyecto en ese caso : PS C:\ecommercedj> git init
+
+#######
+
+$ git init   <--- inicializa el repositorio
+
+$ git status <--- se utiliza para verificar lo que vamos a subir
+
+$ git add .  <--- add . se utiliza para Agregar todos los archivos
+(para Agregar un archivo en especifico utilizar $ git add "nombre del archivo/s")

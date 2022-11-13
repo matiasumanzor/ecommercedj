@@ -1,0 +1,21 @@
+<!-- 
+    Main.html  → Plantilla de la que todos heredarán
+    Store.html  → Página de inicio/fachada de la tienda con todos los productos
+    Cart.html  → Carrito de compras de los usuarios
+    Checkout.html  → Página de pago 
+-->
+
+{% extends 'store/main.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+{% block content %}
+
+    <h3>store</h3>
+
+    <img src="{% static 'images/logo.png' %}">
+
+{% endblock content %}
+

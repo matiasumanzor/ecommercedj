@@ -1,0 +1,18 @@
+Instalacion, creacion de entorno y configuracion env
+-Instalacion virtalenv
+  $ py -m pip install virtualenv
+-Creacion de entorno
+  $ virtualenv ecommercedj
+-Activacion
+  $ ecommercedj\Scripts\activate
+
+(Es necesario cumplir con la activacion para no interferir con otros proyectos guardados)
+
+Instalacion django y creacion de proyecto
+Istalar Django (este paso solo es necesario si Django no esta instalado)
+  $ pip install django
+Creacion de proyecto (esto creara el proyecto inicial)
+  $ django-admin startprojetc pythonEcommerce
+Creacion de aplicaciones (Dependera de cuantas deseemos crear)
+  $ python manage.py startapp home
+  $ python manage.py startapp product
