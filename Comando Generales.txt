@@ -17,6 +17,8 @@ Creacion de aplicaciones (Dependera de cuantas deseemos crear)
   $ python manage.py startapp home
   $ python manage.py startapp product
 
+librerias adicionales
+ - Pillow
 
 Super Usuario para este proyecto:
 name: ptitulo
