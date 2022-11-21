@@ -16,3 +16,8 @@ Creacion de proyecto (esto creara el proyecto inicial)
 Creacion de aplicaciones (Dependera de cuantas deseemos crear)
   $ python manage.py startapp home
   $ python manage.py startapp product
+
+
+Super Usuario para este proyecto:
+name: ptitulo
+password: qwerty123456
