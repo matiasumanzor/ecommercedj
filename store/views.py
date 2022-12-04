@@ -1,17 +1,24 @@
 from django.shortcuts import render
-from .models import *
+from .models import * 
 
-# aqui van incluidas todas las vistas que creemos
+def store(request):
+	products = Product.objects.all()
+	context = {'products':products}
+	return render(request, 'store/store.html', context)
 
-def store (request):
-    products = Product.objects.all()
-    context = {'products':products} 
-    return render(request, 'store/store.html', context)
+def cart(request):
 
-def cart (request):
-    context = {}
-    return render(request, 'store/cart.html', context)
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		items = order.orderitem_set.all()
+	else:
+		#Create empty cart for now for non-logged in user
+		items = []
 
-def checkout (request):
-    context = {}
-    return render(request, 'store/checkout.html', context)
+	context = {'items':items}
+	return render(request, 'store/cart.html', context)
+
+def checkout(request):
+	context = {}
+	return render(request, 'store/checkout.html', context)
