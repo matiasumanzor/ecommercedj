@@ -12,8 +12,9 @@ from . import views
 
 
 urlpatterns = [
-    #dejar vacia la url base
+    #dejar vacia la url base de esta forma nuestra vista preincipal sera store.html
     path('', views.store, name="store"),
     path('cart/', views.cart, name="cart"),
-    path('checkout/', views.checkout, name="checkout")
+    path('checkout/', views.checkout, name="checkout"),
+    path('update_item/', views.updateItem, name="update_item"),
 ]

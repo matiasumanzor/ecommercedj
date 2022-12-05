@@ -23,6 +23,7 @@ class Customer(models.Model):
 class Product(models.Model):
     name             =  models.CharField       (max_length=200, null=True)
     price            =  models.FloatField      ()
+    digital          = models.BooleanField(default=False,null=True, blank=True)
     image            =  models.ImageField      (null=True, blank=True)
 
     def __str__(self):
@@ -32,7 +33,7 @@ class Product(models.Model):
     @property
     def imageURL(self):
         try:
-            url =self.image.url
+            url = self.image.url
         except:
             url = ''
         return url
@@ -45,6 +46,16 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    #Creacion metodo de verificacion para el pedido
+    @property
+    def shipping(self):
+        shipping = False
+        OrderItems = self.orderitem_set.all()
+        for i in OrderItems:
+            if i.product.digital == False:
+                shipping = True
+        return shipping
 
 
     #Este fragmento se utiliza para el calculo dentro del carrito de compras
