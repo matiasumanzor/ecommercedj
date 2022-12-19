@@ -35,6 +35,35 @@
         return cookieValue;
       }
       var csrftoken = getToken('csrftoken')
+      
+      function getCookie(name) {
+		    // Divida la cadena de cookies y obtenga todos los pares individuales de nombre = valor en una matriz
+		    var cookieArr = document.cookie.split(";");
+
+		    // Bucle a través de los elementos
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Eliminando los espacios en blanco al principio del nombre de la cookie
+            y compararlo con la cadena dada */
+		        if(name == cookiePair[0].trim()) {
+		            // Decodifica el valor de la cookie y el return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // retorna nulo si no se encuentra
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+
     </Script>
 
   </head>
