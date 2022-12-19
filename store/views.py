@@ -91,3 +91,6 @@ def updateItem(request):
 def processOrder(request):
 	transaction_id = datetime.datetime.now().timestamp()
 	return JsonResponse('Payment submitted..', safe=False)
+
+def login(request):
+	return render(request, 'store/login.html')
