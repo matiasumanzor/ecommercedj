@@ -10,8 +10,8 @@ for (i = 0; i < updateBtns.length; i++) {
 		console.log('productId:', productId, 'Action:', action)
 
         console.log('USER: ', user)
-        if (user == 'Usuario anonimo'){
-            console.log(' Usuario no identificado ')
+        if (user == 'Usuario no identificado'){
+            addCookieItem(productId, action)
         }else{
             updateUserOrder(productId, action)
         }
@@ -39,7 +39,7 @@ function updateUserOrder(productId, action){
 		});
 }
 
-function addCokieItem (productId, action){
+function addCookieItem (productId, action){
 	console.log('Usuario no autentificado')
 
 	if (action == 'add'){

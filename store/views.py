@@ -86,11 +86,7 @@ def updateItem(request):
 	if orderItem.qunatity <= 0:
 		orderItem.delete()
 
-	return JsonResponse('Articulo añadido al carrito', safe=False)
-
-def processOrder(request):
-	transaction_id = datetime.datetime.now().timestamp()
-	return JsonResponse('Payment submitted..', safe=False)
+	return JsonResponse('Articulo añadido al carrito', safe=False)	
 
 def login(request):
 	return render(request, 'store/login.html')
