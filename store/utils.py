@@ -17,18 +17,18 @@ def cookieCart(request):
 	for i in cart:
 		#Usamos el bloque de prueba para evitar que los artículos en el carrito que pueden haber sido eliminados causen un error
 		try:
-			cartItems += cart[i]['qunatity']
+			cartItems += cart[i]['quantity']
 
 			product = Product.objects.get(id=i)
-			total = (product.price * cart[i]['qunatity'])
+			total = (product.price * cart[i]['quantity'])
 
 			order['get_cart_total'] += total
-			order['get_cart_items'] += cart[i]['qunatity']
+			order['get_cart_items'] += cart[i]['quantity']
 
 			item = {
 				'id':product.id,
 				'product':{'id':product.id,'name':product.name, 'price':product.price, 
-				'imageURL':product.imageURL}, 'qunatity':cart[i]['qunatity'],
+				'imageURL':product.imageURL}, 'quantity':cart[i]['quantity'],
 				'digital':product.digital,'get_total':total,
 				}
 			items.append(item)

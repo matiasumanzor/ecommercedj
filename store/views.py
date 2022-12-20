@@ -77,13 +77,13 @@ def updateItem(request):
 	orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
 
 	if action == 'add':
-		orderItem.qunatity = (orderItem.qunatity + 1)
+		orderItem.quantity = (orderItem.quantity + 1)
 	elif action == 'remove':
-		orderItem.qunatity = (orderItem.qunatity - 1)
+		orderItem.quantity = (orderItem.quantity - 1)
 
 	orderItem.save()
 
-	if orderItem.qunatity <= 0:
+	if orderItem.quantity <= 0:
 		orderItem.delete()
 
 	return JsonResponse('Articulo añadido al carrito', safe=False)	

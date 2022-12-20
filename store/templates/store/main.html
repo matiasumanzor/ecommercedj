@@ -4,8 +4,9 @@
     Cart.html  → Carrito de compras de los usuarios
     Checkout.html  → Página de pago 
 -->
-<!DOCTYPE html>
+
 {% load static %}
+<!DOCTYPE html>
 <html>
   <head>
     <title>Ecom</title>
@@ -16,8 +17,8 @@
 
     
     <Script type="text/javascript">
-      //con estao llamamos antes al script escrito mas abajo
-      var user = '{{request.user}}' 
+      //con esto llamamos antes al script escrito mas abajo
+        var user = '{{request.user}}' 
 
       //se reemplaza la variable por defecto de Django getCookie() a nuestra personalizada  getToken()
       function getToken(name) {

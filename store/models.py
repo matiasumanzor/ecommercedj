@@ -69,19 +69,19 @@ class Order(models.Model):
     @property
     def get_cart_items(self):
         orderitems = self.orderitem_set.all()
-        total = sum([item.qunatity for item in orderitems])
+        total = sum([item.quantity for item in orderitems])
         return total
 
 
 # Tabla de pedidos
 #   product    = Nombre producto
 #   order      = N° orden
-#   qunatity   = Cantidad
+#   quantity   = Cantidad
 #   date_added = Fecha
 class OrderItem(models.Model):
     product          =  models.ForeignKey      (Product, on_delete=models.SET_NULL, blank=True, null=True)
     order            =  models.ForeignKey      (Order, on_delete=models.SET_NULL, blank=True, null=True)
-    qunatity         =  models.IntegerField    (default=0, null=True, blank=True)
+    quantity         =  models.IntegerField    (default=0, null=True, blank=True)
     date_added       =  models.DateTimeField   (auto_now_add=True)
 
 
@@ -89,7 +89,7 @@ class OrderItem(models.Model):
     #Toma el precio del producto y lo multiplica por la cantidad deseada
     @property
     def get_total(self):
-        total = self.product.price * self.qunatity
+        total = self.product.price * self.quantity
         return total
 
 
